@@ -1,0 +1,22 @@
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    color: white;
+    padding: 5px 2vw;
+    background-color: #111;
+}
+.left_navbar{
+    display: flex;
+   
+}
+.left_navbar h4{
+    font-weight: 300;
+    align-self: center;
+    margin-left: 1.3rem;
+    font-size: 1.4rem;
+}
+.nav_logo{
+    width: 130px;
+    object-fit: contain;
+}
