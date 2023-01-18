@@ -1,17 +1,18 @@
 import React from 'react'
-import { useEffect } from 'react'
 import Row from './Row'
 import req from '../Request';
+import Banner from './Banner';
 
 export default function Home() {
-  useEffect(() => {
-   const res=fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=4d94b67b7f768f2bec661fcc4ed7078f&language=en-US")
-    .then(res=>res.json())
-    .then(data=>console.log(data))
-  }, [])
+  // useEffect(() => {
+  //  const res=fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=4d94b67b7f768f2bec661fcc4ed7078f&language=en-US")
+  //   .then(res=>res.json())
+  //   .then(data=>console.log(data))
+  // }, [])
   
   return (
    <>
+   <Banner fetchUrl={req.fetch_netflixoriginlas}></Banner>
    <Row title={"Netflix Originals"} fetchUrl={req.fetch_netflixoriginlas} islarge={true}></Row>
    <Row title={"Action"} fetchUrl={req.fetch_action}></Row>
    <Row title={"Adventure"} fetchUrl={req.fetch_Adventure}></Row>
