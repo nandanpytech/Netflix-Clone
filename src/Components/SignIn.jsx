@@ -8,7 +8,7 @@ export default function SignIn() {
         <div className="sign_in_background">
                 <div className="input_box">
                     <p className="signIn_title">Sign In</p>
-                    <form action="">
+                    <form className='form' action="">
                           <input type="text" placeholder='Email ro phone number' name="" id="" />
                           <input type="password" name="" id="" placeholder='Password' />
                           <input type="submit" name="" id="submit" value="Sign In" />

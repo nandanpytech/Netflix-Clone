@@ -1,13 +1,8 @@
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
+
 
 body {
 	font-family: 'Arial', sans-serif;
 	-webkit-font-smoothing: antialiased;
-	background: #000;
 	color: #999;
 }
 
@@ -24,9 +19,7 @@ p {
 	margin: 0.5rem 0;
 }
 
-img {
-	width: 100%;
-}
+
 /* .navbar{
     display: none;
 } */
@@ -57,12 +50,12 @@ img {
     margin-bottom: 1rem;
 
 }
-form{
+.input_box form{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
-form input{
+.form input{
     padding: 1rem;
     background-color: #333;
     outline: none;

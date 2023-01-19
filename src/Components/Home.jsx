@@ -4,13 +4,7 @@ import req from '../Request';
 import Banner from './Banner';
 import Navbar from './Navbar';
 
-export default function Home() {
-  // useEffect(() => {
-  //  const res=fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=4d94b67b7f768f2bec661fcc4ed7078f&language=en-US")
-  //   .then(res=>res.json())
-  //   .then(data=>console.log(data))
-  // }, [])
-  
+export default function Home() {  
   return (
    <>
     <Navbar></Navbar>

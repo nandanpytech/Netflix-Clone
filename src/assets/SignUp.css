@@ -1,0 +1,126 @@
+.signUp{
+      background-image:url("https://assets.nflxext.com/ffe/siteui/vlv3/1ecf18b2-adad-4684-bd9a-acab7f2a875f/6abbb576-106a-4175-a16e-af91cf881736/IN-en-20230116-popsignuptwoweeks-perspective_alpha_website_large.jpg") ;
+    width: 100%;
+    background-size: cover;
+    height: 100vh;
+    border-bottom: 8px solid #222;
+}
+.showcase_signup{
+    background-color: #00000075;
+    width: 100%;
+    height: 100%;
+    padding-top: 10rem;
+}
+.main_box{
+    margin: 0rem auto;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.main_box p{
+    text-align: center;
+}
+.unlimited{
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+.watch{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+p:last-child{
+    font-weight: 400;
+}
+.home_email{
+    background-color: #fff;
+    outline: none;
+    border: transparent;
+    padding: 1rem;
+    width: 70%;
+
+}
+.email_address_home{
+    display: flex;
+    justify-content: center;
+}
+.email_address_home form{
+    display: flex;
+    justify-content: center;
+    width: 540px;
+}
+.home_submit{
+    background-color: red;
+    outline: none;
+    border: transparent;
+    padding: .5rem;
+    width: 30%;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.components{
+    background-color: black;
+}
+
+/* Components  */
+.components .component_1{
+    padding: 90px 55px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 8px solid #222;
+
+}
+.component_desc{
+    height: 100%;
+    width: 50%;
+    color: white;
+    font-weight: 400;
+    margin-right: 2rem;
+
+}
+.component_desc h1{
+    font-weight: 700;
+    font-size: 3.4rem;
+}
+.component_desc p{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.components_video{
+    /* width: 40%; */
+    position: relative;
+}
+.components_video img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+   
+}
+.original_video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 73%;
+    left: 58px;
+    top: 70px;
+}
+.original_video video{
+    width: 100%;
+}
+.component_2{
+    margin-right: 2rem;
+}
+
+@media screen and (max-width:913px) {
+    .components .component_1{
+        flex-direction: column;
+        text-align: center;
+    }
+    .component_desc{
+        width: 100%;
+    }
+    .components_video{
+        width: 80%;
+    }
+}

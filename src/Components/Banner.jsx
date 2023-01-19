@@ -2,7 +2,6 @@ import React from 'react'
 import { useState,useEffect } from "react"
 import instance from '../axios';
 import '../assets/Banner.css'
-import Image from '@mui/material'
 
 
 const base_url="https://image.tmdb.org/t/p/original/"
