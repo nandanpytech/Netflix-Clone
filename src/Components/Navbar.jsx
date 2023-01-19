@@ -12,6 +12,11 @@ export default function Navbar() {
             <h4>Sports</h4>
         </div>
 
+        <div className="right">
+          <button type="button" class="btn join">Join Now</button>
+          <button type="button" class="btn sign">Sign In</button>
+        </div>
+
     </div>
     </>
   )

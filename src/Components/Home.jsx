@@ -2,6 +2,7 @@ import React from 'react'
 import Row from './Row'
 import req from '../Request';
 import Banner from './Banner';
+import Navbar from './Navbar';
 
 export default function Home() {
   // useEffect(() => {
@@ -12,6 +13,7 @@ export default function Home() {
   
   return (
    <>
+    <Navbar></Navbar>
    <Banner fetchUrl={req.fetch_netflixoriginlas}></Banner>
    <Row title={"Netflix Originals"} fetchUrl={req.fetch_netflixoriginlas} islarge={true}></Row>
    <Row title={"Action"} fetchUrl={req.fetch_action}></Row>
