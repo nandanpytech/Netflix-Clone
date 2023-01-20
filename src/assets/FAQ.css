@@ -1,0 +1,31 @@
+li{
+    list-style-type: none;
+}
+.faq_section{
+    margin: 2rem auto;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.item{
+    margin-top: .5rem;
+    font-size: 1.625rem;
+    font-weight: 400;
+    
+}
+.open_faq{
+    background-color:#303030 ;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.6em 2.2em 0.4em 1.2em;
+    font-weight: 400;
+}
+.item_desc{
+  background-color:#303030 ;
+  font-weight: 400;
+  color: #fff;
+   padding: 0.6em 2.2em 0.4em 1.2em;
+   margin: 0 .1rem;
+}

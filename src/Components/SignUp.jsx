@@ -1,6 +1,10 @@
 import React from 'react'
 import '../assets/SignUp.css'
 import tv from '../assets/photo/tv.png'
+import mobile from '../assets/photo/mobile-0819.jpg'
+import choto from '../assets/photo/AAAABYjXrxZKtrzxQRVQNn2aIByoomnlbXmJ-uBy7du8a5Si3xqIsgerTlwJZG1vMpqer2kvcILy0UJQnjfRUQ5cEr7gQlYqXfxUg7bz.png'
+import FAQ from './FAQ'
+
 
 export default function SignUp() {
   return (
@@ -38,19 +42,17 @@ export default function SignUp() {
       </div>
       <div className="component_1 component_2">
         <div className="components_video">
-            <img src={tv} alt="" />
-            <div className="original_video">
-              <video src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"></video>
-            </div>
+            <img src={mobile} alt="" />
           </div>
           <div className="component_desc">
-            <h1>Enjoy on your TV.</h1>
-            <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+          <h1>Download your shows to watch offline.</h1>
+            <p>Save your favourites easily and always have something to watch.</p>
+          
           </div>
       </div>
       <div className="component_1">
           <div className="component_desc">
-            <h1>Enjoy on your TV.</h1>
+          <h1>Enjoy on your TV.</h1>
             <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
           </div>
           <div className="components_video">
@@ -60,19 +62,18 @@ export default function SignUp() {
             </div>
           </div>
       </div>
-      <div className="component_1">
-          <div className="component_desc">
-            <h1>Enjoy on your TV.</h1>
-            <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+      <div className="component_1 component_2">
+        <div className="components_video">
+            <img src={choto} alt="" />
           </div>
-          <div className="components_video">
-            <img src={tv} alt="" />
-            <div className="original_video">
-              <video src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"></video>
-            </div>
+          <div className="component_desc">
+          <h1>Create profiles for children.</h1>
+            <p>Send children on adventures with their favourite characters in a space made just for them—free with your membership.</p>
           </div>
       </div>
     </div>
+
+    <FAQ></FAQ>
   </>
   )
 }

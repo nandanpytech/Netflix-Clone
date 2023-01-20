@@ -76,12 +76,12 @@ p:last-child{
     width: 50%;
     color: white;
     font-weight: 400;
-    margin-right: 2rem;
+    margin-left: 2rem;
 
 }
 .component_desc h1{
-    font-weight: 700;
-    font-size: 3.4rem;
+    font-weight: 600;
+    font-size: 3rem;
 }
 .component_desc p{
     font-size: 1.3rem;
@@ -109,7 +109,10 @@ p:last-child{
     width: 100%;
 }
 .component_2{
-    margin-right: 2rem;
+    gap: 5rem;
+}
+.component_2 .components_video{
+    width: 45%;
 }
 
 @media screen and (max-width:913px) {
@@ -122,5 +125,8 @@ p:last-child{
     }
     .components_video{
         width: 80%;
+    }
+    .component_2 .components_video{
+        width: 100%;
     }
 }
