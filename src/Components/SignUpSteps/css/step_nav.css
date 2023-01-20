@@ -1,0 +1,49 @@
+.step_nav{
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+.step_nav img{
+    width: 30%;
+}
+.step_nav h3{
+    align-self: center;
+    font-size: 20px;
+}
+
+
+/* Step-1.css */
+.container{
+    display: flex;
+    flex-direction: column;
+    max-width: 440px;
+    margin: 2rem auto;
+}
+.container p{
+    margin-bottom: .5rem;
+}
+.step_form{
+    margin-top: 1rem;
+}
+.step_email{
+    font-weight: 500;
+} 
+.step_form input{
+    background-color: white;
+    border: transparent;
+    border: 1px solid black;
+    caret-color: black;
+    color: black;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+.welcome{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.blue{
+    color: blue;
+}

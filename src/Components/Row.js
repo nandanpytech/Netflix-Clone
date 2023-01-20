@@ -23,7 +23,6 @@ export default function Row({title,fetchUrl,islarge}) {
               return <img className={`row_poster ${islarge && 'row_poster_large'}`} key={ele.id} src={`${base_url}${ele.poster_path}` ||`${base_url}${ele.backdrop_path}` } alt={ele.name} />
             })} 
         </div>
-       
     </div>
     </>
   )

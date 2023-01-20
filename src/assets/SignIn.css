@@ -1,10 +1,10 @@
 
 
-body {
+/* body {
 	font-family: 'Arial', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	color: #999;
-}
+} */
 
 ul {
 	list-style: none;
@@ -15,9 +15,9 @@ a {
 	text-decoration: none;
 }
 
-p {
+/* p {
 	margin: 0.5rem 0;
-}
+} */
 
 
 /* .navbar{
