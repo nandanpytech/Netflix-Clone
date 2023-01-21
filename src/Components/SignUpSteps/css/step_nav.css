@@ -1,6 +1,6 @@
 .step_nav{
     display: flex;
-    width: 100vw;
+    width: 100%;
     justify-content: space-between;
     padding: 1rem;
     border-bottom: 1px solid #e6e6e6;
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     max-width: 440px;
-    margin: 2rem auto;
+    margin-top: 2rem ;
 }
 .container p{
     margin-bottom: .5rem;
@@ -46,4 +46,68 @@
 }
 .blue{
     color: blue;
+}
+
+
+/* step 2.css  */
+.right_logo{
+    justify-self: center;
+    width: 12%;
+    margin: 0 auto;
+    margin-top:84px;
+    margin-bottom: 20px;
+}
+.step_2 p{
+    text-align: center;
+}
+.plan_lists{
+    max-width: 300px;
+    margin: 1rem auto;
+    font-size: 1.1rem;
+}
+.plan_list{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+#checkicon{
+    color: red;
+}
+.next_button{
+    min-width: 300px;
+    margin: 0 auto;
+    margin-bottom: 8rem;
+}
+.next_button .btn{
+    width: 100%;
+    padding: 1rem;
+}
+
+/* step_3.css  */
+.Step_two_second{
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    margin: 1rem auto;
+}
+.price_chart{
+    height: 100vh;
+}
+.Step_two_second .container .next_button{
+    margin-bottom: 1rem;
+}
+.Step_two_second .container{
+    margin: 0;
+}
+.Step_two_second .container .step_2 p{
+    text-align: start;
+}
+.Step_two_second .container .plan_lists{
+    margin: 0;
+}
+.Step_two_second .container{
+   max-width: 100%;
+}
+.Step_two_second .container .plan_lists .plan_list{
+    margin-bottom: .3rem;
 }
