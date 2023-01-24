@@ -1,25 +1,25 @@
 const mongoose=require('mongoose')
 const userschema=new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
-    },
+    // name:{
+    //     type:String,
+    //     required:true
+    // },
     email:{
         type:String,
         required:true,
         unique:true
     },
-    phone:{
-        type:Number,
-        required:true,
-        unique:true
-    },
+    // phone:{
+    //     type:Number,
+    //     required:true,
+    //     unique:true
+    // },
     password:{
-        required:true,
+        type:String,
     },
-    confirmpassword:{
-        required:true
-    },
+    // confirmpassword:{
+    //     required:true
+    // },
 })
 
 const Register=new mongoose.model("Netflix_Register",userschema)

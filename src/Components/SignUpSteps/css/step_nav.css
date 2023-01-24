@@ -90,9 +90,6 @@
     max-width: 1024px;
     margin: 1rem auto;
 }
-.price_chart{
-    height: 100vh;
-}
 .Step_two_second .container .next_button{
     margin-bottom: 1rem;
 }
@@ -110,4 +107,76 @@
 }
 .Step_two_second .container .plan_lists .plan_list{
     margin-bottom: .3rem;
+}
+
+.price_chart{
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    margin-bottom: 2rem;
+    /* margin: 2rem auto; */
+}
+
+.price_chart .red{
+    width: 100%;
+    position: sticky;
+    top: 0;
+}
+.price_chart .red_boxs{
+    float: right;
+    display: flex;
+    gap: 1rem;
+    width: 65%;
+
+}
+
+.red_boxs .red_box{
+    background-color: rgb(243, 58, 58);
+    color: #fff;
+    flex: 1 1 0;
+    width: 0;
+    text-align: center;
+    padding: 1.8rem 0rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+th{
+    width: 30%;
+}
+td{
+    text-align: center;
+}
+
+
+/* Error Handling.css  */
+.message_handling{
+    width: 100%;
+    background-color:rgb(251, 164, 4) ;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.5rem;
+    
+}
+.message_handling .messages{
+    margin: 0;
+    padding-left: .5rem;
+}
+.message_handling .messages a {
+    text-decoration: underline;
+    color: black;
+}
+
+
+@media screen and (max-width:580px) {
+    th{
+        display: none;
+        width: 0;
+    }
+}
+@media screen and (min-width:580px) {
+    .step_nav img{
+            width: 22%;
+    }
 }

@@ -1,13 +1,37 @@
-import React from 'react'
+import {React,useState} from 'react'
 import '../assets/Landing.css'
 import tv from '../assets/photo/tv.png'
 import mobile from '../assets/photo/mobile-0819.jpg'
 import choto from '../assets/photo/AAAABYjXrxZKtrzxQRVQNn2aIByoomnlbXmJ-uBy7du8a5Si3xqIsgerTlwJZG1vMpqer2kvcILy0UJQnjfRUQ5cEr7gQlYqXfxUg7bz.png'
 import FAQ from './FAQ'
 import Footer from './Footer'
+import Step1 from './SignUpSteps/Step1'
+import Step2 from './SignUpSteps/Step2'
 
 
 export default function SignUp() {
+  const [email_or_password, setemail_or_password] = useState({email:"",password:""})
+  const [count, setcount] = useState(0)
+
+  const handle_Email_password=(e)=>{
+    setemail_or_password({...email_or_password,[e.target.name]:e.target.value})
+  }
+  const Increasecount=()=>{
+    setcount((prev)=>prev+1)
+  }
+
+  console.log(email_or_password)
+
+  switch (count) {
+    case 1:
+      return (<Step1 email_or_password={email_or_password} handle_Email_password={handle_Email_password} setcount={setcount} ></Step1>)
+  
+    case 2:
+      return (<Step2></Step2>)
+    default:
+      break;
+  }
+
   return (
   <>
     <div className="signUp">
@@ -22,8 +46,8 @@ export default function SignUp() {
             </div>
             <div className="email_address_home">
                 <form action="">
-                  <input className='home_email' type="text" placeholder='Email address'/>
-                  <input className='home_submit' type="submit" value="Get Started "/>
+                  <input className='landingpage_email' name="email" type="text" onChange={handle_Email_password} value={email_or_password.email} placeholder='Email address'/>
+                  <input className='landingpage_submit' onClick={Increasecount}   value="Get Started "/>
                 </form>
             </div>
         </div>
