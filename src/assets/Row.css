@@ -3,27 +3,66 @@
     flex-direction: column;
     color: white;
     background-color: #111;
+    position: relative;
 }
 .row_posters{
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
+    width: max-content;
     padding: 20px;
+    transform: translateX(0px);
+    transition: all 1s ease;
 }
 .row_posters::-webkit-scrollbar{
     display: none;
 }
 .row_poster{
     width: 100%;
-    object-fit: contain;
-    max-height: 160px;
-    margin-left: 15px;
-    transition: all 450ms;
+    object-fit: cover;
+    max-height: 180px;
+   
 }
-.row_poster:hover{
+.listItem{
+    font-size: .5rem;
+    width: 160px;
+    height: 180px;
+    overflow: hidden;
+    margin-left: 15px;
+    transition: all .5s;
+}
+.listItem img{
+    width: 100%;
+    height: 100%;
+}
+.listItem:hover{
+    width: 250px;
+    height: 250px;
+}
+
+
+/* .listItem:hover{
     transform: scale(1.08);
 
-}
+} */
 .row_poster_large{
-    max-height: 250px;
+    max-height: 260px;
+}
+.slidearrow{
+    width: 50px;
+    height: 100%;
+    background-color: rgb(22, 22, 22,0.5);
+    color: white;
+    position: absolute;
+}
+ .row_posters  .left{
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+}
+.row_posters > .right{
+    position: absolute;
+    right: 0;
+    font-size: 4rem;
+    cursor: pointer;
 }

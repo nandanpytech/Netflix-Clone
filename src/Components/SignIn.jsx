@@ -1,46 +1,47 @@
 import {React,useState} from 'react'
 import {useNavigate } from "react-router-dom";
 import '../assets/SignIn.css'
+import axios from 'axios';
 
 
 export default function SignIn() {
   const navigate=useNavigate()
-  const [user, setuser] = useState({email_or_number:"",password:""})
+  const [user, setuser] = useState({email:"",password:""})
 
   const handleinput=(name)=>(e)=>{
     setuser({...user,[name]:e.target.value})
   }
   const loginsubmit=async(e)=>{
       e.preventDefault()
-    const {email_or_number,password}=user
-    const res=await fetch("http://localhost:5000/signin_", {
+    const res=await fetch("/signin_", {
       method:"POST",
       headers:{
         "Content-Type" : "application/json",
       },
       body:JSON.stringify({
-        email_or_number,password
+        user
       })
     })
+   
 
-    const data=await res.json()
-    if(!data){
-      window.alert("Invalid Registeration")
-    }else{
-      window.alert("LogIn successfully")
+    // const data=await res.json()
+    // if(!data){
+    //   window.alert("Invalid Registeration")
+    // }else{
+    //   window.alert("LogIn successfully")
 
-      navigate("/")
-    }
+    //   navigate("/")
+    // }
   }
   return (
     <>
         <div className="sign_in_background">
                 <div className="input_box">
                     <p className="signIn_title">Sign In</p>
-                    <form className='form' method='post'>
-                          <input type="text" placeholder='Email ro phone number' onChange={handleinput("email_or_phone")} name="" id="" />
-                          <input type="password" name="" id="" placeholder='Password' onChange={handleinput("password")} />
-                          <input type="submit" onClick={loginsubmit} name="" id="submit" value="Sign In" />
+                    <form className='form' method='POST'>
+                          <input type="text" placeholder='Enter your email'  onChange={handleinput("email")} name="" id="" />
+                          <input type="password" name=""  placeholder='Password'  onChange={handleinput("password")} />
+                          <input  onClick={loginsubmit} name="" id="submit" value="Sign In" />
                     </form>
 
                     <div className="help">

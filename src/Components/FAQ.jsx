@@ -13,7 +13,7 @@ export default function FAQ() {
            ele.open=false
         }
         return ele;
-      })
+      }) 
      )
     }
   return (

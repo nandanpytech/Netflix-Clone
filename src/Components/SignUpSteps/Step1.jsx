@@ -8,7 +8,7 @@ export default function Step1({email_or_password,handle_Email_password,setcount}
 const [msg, setmsg] = useState("")
   const signup_form_handle=async(e)=>{
     e.preventDefault()
-    const res=await fetch("http://localhost:5000/signup/password", {
+    const res=await fetch("/signup/password", {
       method:"POST",
       headers:{
         "Content-Type" : "application/json",
@@ -20,16 +20,12 @@ const [msg, setmsg] = useState("")
 
     //To verify the response from the backend..
     let result = await res.json();
-    if(result){
-      setmsg(result.error)
+    if(result.message=="Successfully Registered"){
+      setcount(prev=>prev+1)
+    }else{
+      result.error?setmsg(result.error):setmsg(result.message)
     }
-   !result.error??setcount(prev=>prev+1)
-    
-
-
   }
-
- 
 
   return (
     <>

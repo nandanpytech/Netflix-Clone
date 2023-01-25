@@ -1,5 +1,5 @@
 .signUp{
-      background-image:url("https://assets.nflxext.com/ffe/siteui/vlv3/1ecf18b2-adad-4684-bd9a-acab7f2a875f/6abbb576-106a-4175-a16e-af91cf881736/IN-en-20230116-popsignuptwoweeks-perspective_alpha_website_large.jpg") ;
+    background-image:url("https://assets.nflxext.com/ffe/siteui/vlv3/1ecf18b2-adad-4684-bd9a-acab7f2a875f/6abbb576-106a-4175-a16e-af91cf881736/IN-en-20230116-popsignuptwoweeks-perspective_alpha_website_large.jpg") ;
     width: 100%;
     background-size: cover;
     height: 100vh;
@@ -9,7 +9,24 @@
     background-color: #00000075;
     width: 100%;
     height: 100%;
-    padding-top: 10rem;
+}
+.navbar_landing{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    padding-bottom: 10rem;
+}
+.navbar_landing img{
+    width: 10%;
+    object-fit: contain;
+}
+.navbar_landing .Sign_Handling{
+    padding:.5rem 1rem;
+    color: white;
+    background-color: red;
+    border: transparent;
+    border-radius: 5px;
 }
 .main_box{
     margin: 0rem auto;

@@ -20,8 +20,6 @@ export default function SignUp() {
     setcount((prev)=>prev+1)
   }
 
-  console.log(email_or_password)
-
   switch (count) {
     case 1:
       return (<Step1 email_or_password={email_or_password} handle_Email_password={handle_Email_password} setcount={setcount} ></Step1>)
@@ -36,6 +34,10 @@ export default function SignUp() {
   <>
     <div className="signUp">
         <div className="showcase_signup">
+          <div className="navbar_landing">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="" />
+            <button className='Sign_Handling'>SignIn</button>
+          </div>
             <div className="main_box">
                 <p className="unlimited">
                   Unlimited movies, TV <br/>
