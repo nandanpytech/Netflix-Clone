@@ -5,6 +5,8 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useRef } from 'react';
 import ListItem from './ListItem';
+import YouTube from 'react-youtube';
+
 
 export default function Row({title,fetchUrl,islarge}) {
   const [slidenumber, setslidenumber] = useState(0)
@@ -32,6 +34,10 @@ export default function Row({title,fetchUrl,islarge}) {
       console.log(slidenumber)
     }
 
+
+    const Show_Trailer=async(ele)=>{
+      console.log(ele.name)
+    }
     //Icon style
     const styles={
       leftIcon:{
@@ -62,9 +68,11 @@ export default function Row({title,fetchUrl,islarge}) {
         <ArrowBackIosIcon style={styles.leftIcon} onClick={()=>handleclick("left")} className='slidearrow left'></ArrowBackIosIcon>
         <div className="row_posters"ref={listRef} >
             {movies.map((ele)=>{
-              return <ListItem ele={ele} islarge={islarge}></ListItem>
+
+              return <ListItem key={ele.id} onClick={()=>Show_Trailer(ele)}  ele={ele} islarge={islarge}></ListItem>
             })} 
         </div>
+        {/* <YouTube className='youtube_video'  videoId='KlyknsTJk0w'></YouTube> */}
         <ArrowForwardIosIcon style={styles.RightIcon} className='slidearrow right' onClick={()=>handleclick("right")}></ArrowForwardIosIcon>
        
     </div>

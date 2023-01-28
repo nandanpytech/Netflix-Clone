@@ -131,7 +131,7 @@
 }
 
 .red_boxs .red_box{
-    background-color: rgb(243, 58, 58);
+    background-color: rgba(243, 58, 58, 0.825);
     color: #fff;
     flex: 1 1 0;
     width: 0;
@@ -139,7 +139,13 @@
     padding: 1.8rem 0rem;
     font-size: 1rem;
     font-weight: 700;
+    cursor: pointer;
 }
+.red_boxs .marked{
+    background-color: red;
+}
+
+
 
 th{
     width: 30%;

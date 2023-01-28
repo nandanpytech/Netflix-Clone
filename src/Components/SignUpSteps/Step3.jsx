@@ -10,11 +10,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Footer from '../Footer';
+import { useState } from 'react'
 
 export default function Step3() {
+    const [marked, setmarked] = useState("Mobile")
     function createData(name, mobile, basic, standard, premium) {
         return { name, mobile, basic, standard, premium };
       }
+
+      const redboxes=["Mobile","Basic","Standard","Premium"]
       
       const rows = [
         createData('Monthly price', "₹149" , "₹199",  "₹499",  "₹649"),
@@ -22,6 +26,10 @@ export default function Step3() {
         createData('Resolution', "480p", "720p","1080p", "4k+HDR"),
         createData('Devices you can use to watch', "₹649", 3.7, 67, 4.3,9),
       ];
+
+      const marked_red=(ele)=>{
+        setmarked(ele.target.id)
+      }
   return (
    <>
     <StepNavbar></StepNavbar>
@@ -52,25 +60,15 @@ export default function Step3() {
             <div className="price_chart">
                 <div className="red">
                     <div className="red_boxs">
-                        <div className="red_box">Mobile</div>
-                        <div className="red_box">Basic</div>
-                        <div className="red_box">Standard</div>
-                        <div className="red_box">Premium</div>
+                        {redboxes.map((ele)=>{
+                           return  <div  id={ele} onClick={marked_red} className={ele===marked?"red_box marked":"red_box"}>{ele}</div>
+                        })}
                     </div>
                 </div>
                    
                 <div className="price_table">
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 550 }} aria-label="simple table">
-                        {/* <TableHead>
-                        <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-                        </TableRow>
-                        </TableHead> */}
                         <TableBody>
                         {rows.map((row) => (
                             <TableRow

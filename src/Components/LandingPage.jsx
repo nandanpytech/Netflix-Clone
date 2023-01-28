@@ -7,6 +7,8 @@ import FAQ from './FAQ'
 import Footer from './Footer'
 import Step1 from './SignUpSteps/Step1'
 import Step2 from './SignUpSteps/Step2'
+import Step3 from './SignUpSteps/Step3'
+import { NavLink } from 'react-router-dom'
 
 
 export default function SignUp() {
@@ -25,18 +27,21 @@ export default function SignUp() {
       return (<Step1 email_or_password={email_or_password} handle_Email_password={handle_Email_password} setcount={setcount} ></Step1>)
   
     case 2:
-      return (<Step2></Step2>)
+      return (<Step2 setcount={setcount}></Step2>)
+    case 3:
+      return (<Step3></Step3>)
     default:
       break;
   }
 
   return (
   <>
-    <div className="signUp">
+  
+      <div className="signUp">
         <div className="showcase_signup">
           <div className="navbar_landing">
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="" />
-            <button className='Sign_Handling'>SignIn</button>
+            <NavLink to="/signIn"  className='Sign_Handling'>SignIn</NavLink>
           </div>
             <div className="main_box">
                 <p className="unlimited">
@@ -103,6 +108,8 @@ export default function SignUp() {
     <FAQ></FAQ>
 
     <Footer></Footer>
+  
+    
   </>
   )
 }

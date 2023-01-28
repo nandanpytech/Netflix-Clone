@@ -1,7 +1,7 @@
 import {React,useState} from 'react'
-import {useNavigate } from "react-router-dom";
+import {NavLink, useNavigate } from "react-router-dom";
 import '../assets/SignIn.css'
-import axios from 'axios';
+
 
 
 export default function SignIn() {
@@ -28,9 +28,7 @@ export default function SignIn() {
     // if(!data){
     //   window.alert("Invalid Registeration")
     // }else{
-    //   window.alert("LogIn successfully")
-
-    //   navigate("/")
+    //   console.log(data)
     // }
   }
   return (
@@ -53,7 +51,7 @@ export default function SignIn() {
                       </div>
 
                       <div className="last">
-                        <p>New to Netflix? <span className='sign_up_now'>Sign up now.</span></p>
+                        <p>New to Netflix? <NavLink to="/" className='sign_up_now' >Sign up now.</NavLink></p>
                         <br />
                         <p>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span id='learn'>Learn more.</span></p>
                       </div>

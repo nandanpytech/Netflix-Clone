@@ -42,7 +42,7 @@ router.post("/signup/password",async(req,res)=>{
         }else{
             const user=new User({email,password})
             const userRegister=await user.save()
-            res.status(200).send({message:"Successfully Registered"})
+            return res.status(200).send({message:"Successfully Registered",user:user})
         }
         // const UserRegister=User.findOne({email:email})
         // //Generate token

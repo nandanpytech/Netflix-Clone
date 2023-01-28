@@ -3,7 +3,7 @@
 /* body {
 	font-family: 'Arial', sans-serif;
 	-webkit-font-smoothing: antialiased;
-	color: #999;
+	
 } */
 
 ul {
@@ -35,6 +35,7 @@ a {
 } */
 .input_box{
     background-color: rgba(0,0,0,.75);
+    color: #999;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -62,11 +63,13 @@ a {
     border-radius: 7px;
     caret-color: #fff;
     color: #fff;
+    border: transparent;
 }
 #submit{
     color: #fff;
     background-color: red;
     margin-top: 1.5rem;
+    text-align: center;
 }
 .help{
     display: flex;
@@ -82,6 +85,8 @@ a {
 }
 .sign_up_now{
     color: #fff;
+    cursor: pointer;
+    text-decoration: underline;
 }
 #learn{
     color: blue;

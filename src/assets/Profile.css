@@ -1,0 +1,9 @@
+.edit_profile{
+    display: grid;
+    place-items: center;
+    background-color: black;
+    min-height: 100vh;
+}
+.edit{
+    color: white;
+}

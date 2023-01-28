@@ -31,6 +31,7 @@
     overflow: hidden;
     margin-left: 15px;
     transition: all .5s;
+    cursor: pointer;
 }
 .listItem img{
     width: 100%;
@@ -65,8 +66,9 @@
 }
 
 /* video  */
-.listItem video{
+.youtube_video{
     width: 100%;
     object-fit: cover;
-    height: 177px;
+    max-height: 340px;
+    margin: 1rem 5rem;
 }
