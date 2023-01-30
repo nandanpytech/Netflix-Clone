@@ -1,15 +1,11 @@
 import {React,useState} from 'react'
-import { useDispatch } from 'react-redux'
 import './css/step_nav.css'
 import MessageHandling from './MessageHandling'
 import StepNavbar from './StepNavbar'
-import {login} from '../../Features/UserSlice'
-
-
 
 export default function Step1({email_or_password,handle_Email_password,setcount}) {
 const [msg, setmsg] = useState("")
-  const dispatch=useDispatch()
+
   const signup_form_handle=async(e)=>{
     e.preventDefault()
     const res=await fetch("/signup/password", {
@@ -24,14 +20,9 @@ const [msg, setmsg] = useState("")
 
     //To verify the response from the backend..
     let result = await res.json();
-    if(result.message=="Successfully Registered"){
+    if(result.message==="Successfully Registered"){
       setcount(prev=>prev+1)
 
-      //Dispatch
-     
-      dispatch(login({
-        email_or_password
-      }))
     }else{
       result.error?setmsg(result.error):setmsg(result.message)
     }

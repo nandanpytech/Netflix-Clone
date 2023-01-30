@@ -1,19 +1,44 @@
-import React from 'react'
+import {React,useEffect} from 'react'
 import '../assets/Profile.css'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
-import CommentIcon from '@mui/icons-material/Comment';
 import Button from '@mui/material/Button';
 import ListSubheader from '@mui/material/ListSubheader';
 import Divider from '@mui/material/Divider';
+import { useNavigate } from 'react-router';
+
 
 export default function Profile() {
+  const navigate=useNavigate()
     const plans=["Mobile","Basic","Standard","Premium"]
+
+    const callProfilePage=async()=>{
+        try {
+          const res=await fetch('/profile', {
+            method:"GET",
+            headers:{
+              Accept:"application/json",
+              "Content-Type":"application/json"
+            },
+            credentials:"include"
+          });
+    
+          const data=await res.json();
+          if(!res.status===200 && !data){
+           const error=new Error(res.error);
+           throw error
+          }
+        } catch (error) {
+         navigate('/signIn')
+        }
+      }
+      useEffect(() => {
+        callProfilePage()
+      },)
+      
   return (
     <>
     <div className="edit_profile">
@@ -48,7 +73,7 @@ export default function Profile() {
             </ListItem>
             );
         })}
-            <Button className='sign_out' sx={{width:'100%',marginTop:'15px'}} color='error' variant="contained">Sign out</Button>
+            <Button className='sign_out' sx={{width:'100%',marginTop:'15px'}} color='error'  variant="contained">Sign out</Button>
         </List>
     </div>    
 

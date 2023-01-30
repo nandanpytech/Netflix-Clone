@@ -34,6 +34,8 @@ export default function SignUp() {
       break;
   }
 
+
+ 
   return (
   <>
   

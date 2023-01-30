@@ -1,7 +1,17 @@
 const express=require('express')
 const app=express()
+const bcrypt=require("bcryptjs")
 const User=require("../models/userRegister")
 const router=express.Router();
+const Authenticate=require('../Authenticate/authenticate')
+const cookieParser=require('cookie-parser')
+app.use(cookieParser())
+
+
+router.get('/',Authenticate,(req,res)=>{
+    console.log("ho")
+    return res.status(200).send(req.rootUser)
+ })
 
 //signIn
 router.post("/signin_", async(req,res)=>{
@@ -12,15 +22,23 @@ router.post("/signin_", async(req,res)=>{
     try {
     const Userlogin=await User.findOne({email:email})
     if(Userlogin){
+
+            //Password checking
+            const isMatch=await bcrypt.compare(password,Userlogin.password)
              //generate token
             const token=await Userlogin.generateAuthtoken()
-            console.log(token)
+
              //Generate cookies
-            // res.cookie("jwtoken",token,{
-            //     expires:new Date(Date.now() + 25892000000),
-            //     httpOnly:true
-            // })
-            res.cookie("lskjd","sdf")
+             res.cookie("jwtoken",token,{
+                expires:new Date(Date.now() + 25892000000),
+                httpOnly:true,
+            })
+
+            if(isMatch){
+               return  res.send({message:"Login Successfully",token:token})
+            }else{
+             return   res.send({error:"User error"})
+            }
        
     }
     } catch (error) {
@@ -54,6 +72,12 @@ router.post("/signup/password",async(req,res)=>{
         console.log(error)
     }
 })
+
+//another pages
+router.get('/profile',Authenticate,(req,res)=>{
+    return res.status(200).send(req.rootUser)
+})
+
 
 
 module.exports=router

@@ -3,10 +3,39 @@ import Row from './Row'
 import req from '../Request';
 import Banner from './Banner';
 import Navbar from './Navbar';
+import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
+
 
 export default function Home() {  
+  const navigate=useNavigate()
+  const callHomePage=async()=>{
+    try {
+      const res=await fetch('/home', {
+        method:"GET",
+        headers:{
+          Accept:"application/json",
+          "Content-Type":"application/json"
+        },
+        credentials:"include"
+      });
+
+      const data=await res.json();
+      if(!res.status===200 && !data){
+       const error=new Error(res.error);
+       throw error
+      }
+    } catch (error) {
+      console.log(error)
+     navigate('/signIn')
+    }
+  }
+  useEffect(() => {
+    callHomePage()
+  },)
   return (
    <>
+   
     <Navbar></Navbar>
    <Banner fetchUrl={req.fetch_netflixoriginlas}></Banner>
    <Row title={"Netflix Originals"} fetchUrl={req.fetch_netflixoriginlas} islarge={true}></Row>

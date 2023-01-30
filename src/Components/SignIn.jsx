@@ -1,11 +1,15 @@
 import {React,useState} from 'react'
-import {NavLink, useNavigate } from "react-router-dom";
+import {NavLink,useNavigate } from "react-router-dom";
 import '../assets/SignIn.css'
+// import Cookies from 'universal-cookie';
+// import {login} from '../Features/UserSlice'
+// import { useDispatch } from 'react-redux'
 
 
 
 export default function SignIn() {
   const navigate=useNavigate()
+  // const dispatch=useDispatch()
   const [user, setuser] = useState({email:"",password:""})
 
   const handleinput=(name)=>(e)=>{
@@ -24,12 +28,18 @@ export default function SignIn() {
     })
    
 
-    // const data=await res.json()
-    // if(!data){
-    //   window.alert("Invalid Registeration")
-    // }else{
-    //   console.log(data)
-    // }
+    const data=await res.json()
+    if(!data){
+      window.alert("Invalid Registeration")
+    }else{
+      window.alert("LogIn Successfully")
+      // const cookies = new Cookies();
+      // cookies.set('name',data.token)
+
+      //navigate
+      navigate('/home')
+
+    }
   }
   return (
     <>
