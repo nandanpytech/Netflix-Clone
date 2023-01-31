@@ -19,6 +19,7 @@ require('./db/conn')
 
 //Link import to Auth file..
 app.use(require('./Router/auth'))
+app.use(require('./sub'))
 
 
 

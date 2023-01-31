@@ -11,6 +11,11 @@ const userschema=new mongoose.Schema({
         type:String,
         required:true
     },
+    customerStripeId:{
+        type:String,
+        required:true,
+    },
+
     tokens:[{
         token:{
             type:String,

@@ -6,30 +6,57 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Footer from '../Footer';
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+
+
+
+function createData(name, mobile, basic, standard, premium) {
+    return { name, mobile, basic, standard, premium };
+  }
+
+  const redboxes=["Mobile","Basic","Standard","Premium"]
+
 
 export default function Step3() {
     const [marked, setmarked] = useState("Mobile")
-    function createData(name, mobile, basic, standard, premium) {
-        return { name, mobile, basic, standard, premium };
+      const marked_red=(ele)=>{
+        setmarked(ele.target.id)
+      }
+    
+      const Session=async()=>{
+        try {
+            const res=await fetch("/session", {
+                method:"POST",
+                headers:{
+                  "Content-Type" : "application/json",
+                },
+                // body:JSON.stringify({
+                //   user
+                // })
+              })
+            const data=await res.json();
+            console.log(data)
+          } catch (error) {
+            console.log(error)
+          }
       }
 
-      const redboxes=["Mobile","Basic","Standard","Premium"]
-      
+
       const rows = [
         createData('Monthly price', "₹149" , "₹199",  "₹499",  "₹649"),
         createData('Video quality', "Good","Good", "Better", "Best"),
         createData('Resolution', "480p", "720p","1080p", "4k+HDR"),
-        createData('Devices you can use to watch', "₹649", 3.7, 67, 4.3,9),
+        createData('Devices you can use to watch', "Phone", "Tablet","Computer", "Tv"),
       ];
 
-      const marked_red=(ele)=>{
-        setmarked(ele.target.id)
-      }
+
+      useEffect(() => {
+        Session()
+      }, )
+      
   return (
    <>
     <StepNavbar></StepNavbar>
@@ -61,7 +88,7 @@ export default function Step3() {
                 <div className="red">
                     <div className="red_boxs">
                         {redboxes.map((ele)=>{
-                           return  <div  id={ele} onClick={marked_red} className={ele===marked?"red_box marked":"red_box"}>{ele}</div>
+                           return  <div key={ele.id} id={ele} onClick={marked_red} className={ele===marked?"red_box marked":"red_box"}>{ele}</div>
                         })}
                     </div>
                 </div>

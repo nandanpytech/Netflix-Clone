@@ -1,5 +1,7 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import '../assets/Navbar.css'
+
 
 export default function Navbar() {
   return (
@@ -13,8 +15,8 @@ export default function Navbar() {
         </div>
 
         <div className="right">
-          <button type="button" class="btn join">Join Now</button>
-          <button type="button" class="btn sign">Sign In</button>
+          <NavLink to="/in" type="button">Join Now</NavLink>
+          <NavLink to="/profile" type="button">Profile</NavLink>
         </div>
 
     </div>

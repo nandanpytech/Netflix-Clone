@@ -1,15 +1,11 @@
 import {React,useState} from 'react'
 import {NavLink,useNavigate } from "react-router-dom";
 import '../assets/SignIn.css'
-// import Cookies from 'universal-cookie';
-// import {login} from '../Features/UserSlice'
-// import { useDispatch } from 'react-redux'
 
 
 
 export default function SignIn() {
   const navigate=useNavigate()
-  // const dispatch=useDispatch()
   const [user, setuser] = useState({email:"",password:""})
 
   const handleinput=(name)=>(e)=>{
@@ -33,10 +29,6 @@ export default function SignIn() {
       window.alert("Invalid Registeration")
     }else{
       window.alert("LogIn Successfully")
-      // const cookies = new Cookies();
-      // cookies.set('name',data.token)
-
-      //navigate
       navigate('/home')
 
     }
@@ -49,7 +41,7 @@ export default function SignIn() {
                     <form className='form' method='POST'>
                           <input type="text" placeholder='Enter your email'  onChange={handleinput("email")} name="" id="" />
                           <input type="password" name=""  placeholder='Password'  onChange={handleinput("password")} />
-                          <input  onClick={loginsubmit} name="" id="submit" value="Sign In" />
+                          <input  onClick={loginsubmit} style={{cursor:"pointer"}} name="" id="submit" value="Sign In" />
                     </form>
 
                     <div className="help">
