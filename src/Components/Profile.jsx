@@ -1,4 +1,4 @@
-import {React,useEffect} from 'react'
+import {React,useEffect,useState} from 'react'
 import '../assets/Profile.css'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -9,10 +9,14 @@ import Button from '@mui/material/Button';
 import ListSubheader from '@mui/material/ListSubheader';
 import Divider from '@mui/material/Divider';
 import { useNavigate } from 'react-router';
+import { NavLink } from 'react-router-dom';
+
 
 
 export default function Profile() {
   const navigate=useNavigate()
+  const [subscribed, setsubscribed] = useState("None")
+  const [email, setemail] = useState("")
     const plans=["Mobile","Basic","Standard","Premium"]
 
     const callProfilePage=async()=>{
@@ -27,6 +31,7 @@ export default function Profile() {
           });
     
           const data=await res.json();
+          setemail(data.email)
           if(!res.status===200 && !data){
            const error=new Error(res.error);
            throw error
@@ -35,8 +40,31 @@ export default function Profile() {
          navigate('/signIn')
         }
       }
+      const fetchPlans=async()=>{
+        try {
+          const res=await fetch('/subscription', {
+            method:"GET",
+            headers:{
+              Accept:"application/json",
+              "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+              email:email
+            }),
+            credentials:"include"
+          });
+    
+          const data=await res.json();
+          setsubscribed(data)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+
       useEffect(() => {
-        callProfilePage()
+        callProfilePage();
+        fetchPlans()
       },)
       
   return (
@@ -48,27 +76,34 @@ export default function Profile() {
          subheader={
             <>
                 <ListSubheader sx={{bgcolor:'var(--bs-gray-500)',color:'white',fontSize:'1rem'}} component="div" id="nested-list-subheader">
-                nandanbilagi33@gmail.com
+                {email}
                 </ListSubheader>
                 <Divider  sx={{color:'white'}} />
                 <ListSubheader sx={{bgcolor:'black',color:'white',fontSize:'1.3rem',padding:'0'}} component="div" id="nested-list-subheader">
-                Plans (Current Plan:premium)
+                Plans (Current Plan:{subscribed})
                 </ListSubheader>
             </>
           }>
-        {[0, 1, 2, 3].map((value) => {
-            const labelId = `checkbox-list-label-${value}`;
+       {plans.map((value,id) => {
+            const labelId = `checkbox-list-label-${id}`;
             return (
             <ListItem
                 key={value}
                 secondaryAction={
                 <IconButton edge="end" aria-label="comments">
-                    <Button className='subscriber' color='error' variant="contained">Subscriber</Button>
+                    <Button className='subscriber' style={{
+                          backgroundColor:`${subscribed===value?"var(--bs-gray-600)":"red"}`
+                        }}  
+                        variant="contained">
+                         <NavLink style={{color:"white"}} to={`/in/3/${email}`}> 
+                          {subscribed===value?"Subscribed":"Subscribe"}
+                         </NavLink>
+                    </Button>
                 </IconButton>
                 }
             >
                 <ListItemButton role={undefined} dense>
-                <ListItemText id={labelId} primary={`Netflix ${plans[value]}`} />
+                <ListItemText id={labelId} primary={`Netflix ${plans[id]}`} />
                 </ListItemButton>
             </ListItem>
             );

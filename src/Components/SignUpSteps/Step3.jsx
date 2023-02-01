@@ -10,6 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Footer from '../Footer';
 import { useState,useEffect } from 'react'
+import { useParams } from 'react-router';
 
 
 
@@ -22,23 +23,43 @@ function createData(name, mobile, basic, standard, premium) {
 
 export default function Step3() {
     const [marked, setmarked] = useState("Mobile")
-      const marked_red=(ele)=>{
+    const [Price_id_list, setPrice_id_list] = useState([])
+    const {email}=useParams()
+      
+    const marked_red=(ele)=>{
         setmarked(ele.target.id)
       }
-    
+
+      const FetchPrices=async()=>{
+        const response=await fetch('/prices', {
+          method:"GET",
+          headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json"
+          },
+          credentials:"include"
+        });
+        const data=await response.json()
+        setPrice_id_list(data.data)
+      }
       const Session=async()=>{
         try {
-            const res=await fetch("/session", {
+            const res=await fetch('/session', {
                 method:"POST",
                 headers:{
-                  "Content-Type" : "application/json",
+                  Accept:"application/json",
+                  "Content-Type":"application/json"
                 },
-                // body:JSON.stringify({
-                //   user
-                // })
-              })
+                body:JSON.stringify({
+                  email:email,
+                  Price_Id:Price_id_list[3-redboxes.indexOf(marked)].id,
+                }),
+                credentials:"include"
+              });
+        
             const data=await res.json();
-            console.log(data)
+            window.location.href=data.url
+         
           } catch (error) {
             console.log(error)
           }
@@ -54,8 +75,8 @@ export default function Step3() {
 
 
       useEffect(() => {
-        Session()
-      }, )
+        FetchPrices()
+      }, [])
       
   return (
    <>
@@ -87,8 +108,8 @@ export default function Step3() {
             <div className="price_chart">
                 <div className="red">
                     <div className="red_boxs">
-                        {redboxes.map((ele)=>{
-                           return  <div key={ele.id} id={ele} onClick={marked_red} className={ele===marked?"red_box marked":"red_box"}>{ele}</div>
+                        {redboxes.map((ele,id)=>{
+                           return  <div key={id} id={ele} onClick={marked_red}   className={ele===marked?"red_box marked":"red_box"}>{ele}</div>
                         })}
                     </div>
                 </div>
@@ -118,7 +139,7 @@ export default function Step3() {
             </div>
 
             <div className="next_button">
-           <button type="button" class="btn btn-danger">Next</button>
+           <button type="button" onClick={Session} class="btn btn-danger">Next</button>
         </div>
     </div>
     <Footer></Footer>

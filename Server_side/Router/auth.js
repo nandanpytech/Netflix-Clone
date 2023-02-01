@@ -32,7 +32,7 @@ router.post("/signin_", async(req,res)=>{
             })
 
             if(isMatch){
-               return  res.send({message:"Login Successfully",token:token})
+               return  res.send({message:"Login Successfully",token:token,email:Userlogin.email})
             }else{
              return   res.send({error:"User error"})
             }
@@ -71,10 +71,6 @@ router.post("/signup/password",async(req,res)=>{
             const userRegister=await user.save()
             return res.status(200).send({message:"Successfully Registered",user:user})
         }
-        // const UserRegister=User.findOne({email:email})
-        // //Generate token
-        // console.log(UserRegister.password)
-        // const token=await UserRegister.generateAuthtoken()
 
         
     } catch (error) {
@@ -89,6 +85,24 @@ router.get('/profile',Authenticate,(req,res)=>{
 
 router.get('/home',Authenticate,(req,res)=>{
     return res.status(200).send(req.rootUser)
+})
+
+router.get('/subscription',async(req,res)=>{
+    const Userexist=await User.findOne({email:req.body.email})
+    const subscription=await stripe.subscriptions.list(
+        {
+            customer:Userexist.customerStripeId,
+            status:"all",
+            expand:["data.default_payment_method"]
+
+        },
+        {
+            apiKey:process.env.stripe_key
+        }
+    )
+    console.log(subscription)
+    const plan=subscription.data[0].plan.nickname
+    res.json(plan)
 })
 
 

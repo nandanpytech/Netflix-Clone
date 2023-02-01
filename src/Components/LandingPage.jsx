@@ -7,7 +7,6 @@ import FAQ from './FAQ'
 import Footer from './Footer'
 import Step1 from './SignUpSteps/Step1'
 import Step2 from './SignUpSteps/Step2'
-import Step3 from './SignUpSteps/Step3'
 import { NavLink } from 'react-router-dom'
 
 
@@ -28,8 +27,6 @@ export default function SignUp() {
   
     case 2:
       return (<Step2 setcount={setcount}></Step2>)
-    case 3:
-      return (<Step3></Step3>)
     default:
       break;
   }

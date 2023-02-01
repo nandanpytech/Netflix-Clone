@@ -25,11 +25,14 @@ export default function SignIn() {
    
 
     const data=await res.json()
-    if(!data){
+    if(data.error){
       window.alert("Invalid Registeration")
     }else{
       window.alert("LogIn Successfully")
-      navigate('/home')
+      if(!localStorage.getItem("user")){
+        localStorage.setItem("user",data.email)
+      }
+      navigate('/')
 
     }
   }

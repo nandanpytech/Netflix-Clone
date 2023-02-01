@@ -15,7 +15,6 @@ export default function Navbar() {
         </div>
 
         <div className="right">
-          <NavLink to="/in" type="button">Join Now</NavLink>
           <NavLink to="/profile" type="button">Profile</NavLink>
         </div>
 

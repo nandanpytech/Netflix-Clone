@@ -22,17 +22,17 @@ router.get("/prices",async(req,res)=>{
 })
 
 router.post("/session",async(req,res)=>{
-    const user=await User.findOne({email:"dummy@gmail.com"})
+    const user=await User.findOne({email:req.body.email})
     const session=await stripe.checkout.sessions.create({
         mode:"subscription",
         payment_method_types:["card"],
         line_items:[
             {
-                price:req.body.priceId,
+                price:req.body.Price_Id,
                 quantity:1
             }
         ],
-        success_url:"http://localhost:3000/home",
+        success_url:"http://localhost:3000/",
         cancel_url:"http://localhost:3000/in/3",
         customer:user.customerStripeId
     },

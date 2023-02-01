@@ -3,7 +3,7 @@ import StepNavbar from './StepNavbar'
 import CheckIcon from '@mui/icons-material/Check';
 import Footer from '../Footer'
 
-export default function Step2({setcount}) {
+export default function Step2() {
   return (
     <>
     <StepNavbar></StepNavbar>
@@ -31,7 +31,7 @@ export default function Step2({setcount}) {
             </ul>
         </div>
         <div className="next_button">
-           <button type="button" class="btn btn-danger"  onClick={()=>setcount(prev=>prev+1)}>Next</button>
+           <button type="button" class="btn btn-danger"  onClick={()=>alert("Please, Make sure to SignIn")}>Next</button>
         </div>
     </div>
     <Footer></Footer>
