@@ -20,3 +20,8 @@ This project is a full-stack clone of the popular streaming service, Netflix, bu
 ## Getting Started
 
 1. Clone the repository
+
+2. Install dependencies
+
+3. Start the development server
+
