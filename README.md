@@ -1,27 +1,25 @@
-# Netflix Clone (MERN)
+# Netflix Clone
 
-This project is a full-stack clone of the popular streaming service, Netflix, built using the MERN (MongoDB, Express, React, Node.js) stack. It allows users to browse and watch movies and TV shows.
+## Description:
+Developed a clone of the Netflix streaming service, including a payment system powered by Stripe. Implemented the following features:
+- A collection of movies and TV shows available for streaming
+- A subscription system, allowing users to sign up for monthly or yearly plans
+- A payment system, allowing users to purchase their subscriptions using Stripe
+- A user profile page, displaying the user's subscription status and billing history
+- A responsive design for different screen sizes
 
-## Features
+## Technologies Used:
+- ReactJS
+- Node.js
+- Stripe API
+- MongoDB
+- HTML
+- CSS
 
-- Discover new movies and TV shows
-- Watch trailers and read synopses
-- Save your favorite titles to a watchlist
-- Create and manage your own custom playlists
-- Secure user authentication
-
-## Tech Stack
-
-- React for the frontend.
-- Node.js and Express for the backend.
-- MongoDB for the database.
-- Stripe for payment gateway.
-
-## Getting Started
-
-1. Clone the repository
-
-2. Install dependencies
-
-3. Start the development server
-
+## Responsibilities:
+- Designed and developed the movie and TV show collection pages, displaying available content for streaming
+- Built the subscription system, allowing users to sign up for monthly or yearly plans
+- Integrated the payment system using the Stripe API, allowing users to purchase their subscriptions
+- Created the user profile page, displaying the user's subscription status and billing history
+- Implemented a responsive design for different screen sizes using CSS media queries
+- Managed the back-end using Node.js and MongoDB to store user information and subscription details
