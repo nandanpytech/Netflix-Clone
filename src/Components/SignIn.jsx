@@ -12,7 +12,7 @@ export default function SignIn() {
     setuser({...user,[name]:e.target.value})
   }
   const loginsubmit=async(e)=>{
-      e.preventDefault()
+    e.preventDefault()
     const res=await fetch("/signin_", {
       method:"POST",
       headers:{
@@ -32,7 +32,7 @@ export default function SignIn() {
       if(!localStorage.getItem("user")){
         localStorage.setItem("user",data.email)
       }
-      navigate('/')
+      navigate('/home')
 
     }
   }

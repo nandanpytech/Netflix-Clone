@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Row from './Row'
 import req from '../Request';
 import Banner from './Banner';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
+import {Accountcontext} from '../context/UserContext';
 
 
 export default function Home() {  
+  const {user}=useContext(Accountcontext)
+  console.log(user)
   const navigate=useNavigate()
   const callHomePage=async()=>{
     try {
@@ -35,7 +38,6 @@ export default function Home() {
   },)
   return (
    <>
-   
     <Navbar></Navbar>
    <Banner fetchUrl={req.fetch_netflixoriginlas}></Banner>
    <Row title={"Netflix Originals"} fetchUrl={req.fetch_netflixoriginlas} islarge={true}></Row>
@@ -52,7 +54,7 @@ export default function Home() {
    <Row title={"Tv Movie"} fetchUrl={req.fetch_Tvmovie}></Row>
    <Row title={"Thriller"} fetchUrl={req.fetch_Thriller}></Row>
    <Row title={"War"} fetchUrl={req.fetch_War}></Row>
-
    </>
+
   )
 }
